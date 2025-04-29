@@ -1,0 +1,11 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "name": "ADS",
+      "price": "10",
+      "active": "true",
+      "promotion": "true"
+    }
+  ]
+}

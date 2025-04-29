@@ -13,7 +13,26 @@
                     <input formControlName="course" type="text" class="form-control" id="inputCourse" aria-describedby="courseHelp">
                     <div id="courseHelp" class="form-text">Digite o nome do curso</div>
                 </div>
-                <button type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
+
+
+                <button *ngIf="!isediting"
+                           class="btn btn-primary"
+                            (click)="save()"
+                            >
+                            Salvar
+                </button>
+                <button *ngIf="isediting"
+                           class="btn btn-primary"
+                            (click)="update()"
+                            >
+                            Atualizar
+                </button>
+                <button *ngIf="isediting"
+                           class="btn btn-danger ms-3"
+                            (click)="onClickCancel()"
+                            >
+                            Cancelar
+                </button>
             </form>
             <h2 class="text-center">Alunos Cadastrados</h2>
             <table class="table table-striped">
@@ -22,6 +41,8 @@
                     <th scope="col">Id</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Curso</th>
+                    <th scope="col">Remover</th>
+                    <th scope="col">Alterar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -30,6 +51,16 @@
                     <th scope="row">{{s.id}}</th>
                     <td>{{s.name}}</td>
                     <td>{{s.course}}</td>
+                    <td>
+                    <button class="btn btn-danger"
+                      (click)="delete(s)">
+                      Remover
+                    </button>
+                    <td><button class="btn btn-primary"
+                      (click)="onClickUpdate(s)"
+                       >Alterar
+                   </button>
+                  </td>
                   </tr>
                  
                 </tbody>

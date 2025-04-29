@@ -1,24 +1,19 @@
 {
   "students": [
     {
-      "id": 1,
-      "name": "José Maria",
-      "course": "Computação"
-    },
-    {
       "id": 2,
-      "name": "Fernanda Silva",
-      "course": "Computação"
+      "name": "Leo ingles",
+      "course": "Espanhol"
     },
     {
       "id": 3,
-      "name": "Mario Antunes",
-      "course": "Matemática"
+      "name": "Jenivan",
+      "course": "Artilharia"
     },
     {
       "id": 4,
-      "name": "Paulo ctira",
-      "course": "Analise e desenvolvimento de sistemas"
+      "name": "Nicolas",
+      "course": "Angular"
     }
   ]
 }

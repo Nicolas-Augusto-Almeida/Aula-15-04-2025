@@ -11,9 +11,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class StudentsComponent implements OnInit{
 
-
   students: Student[] = [];
   formGroupStudent : FormGroup;
+  isediting: boolean = false;
 
   constructor(private service: StudentService,
               private formBuilder: FormBuilder,
@@ -27,12 +27,17 @@ export class StudentsComponent implements OnInit{
   
 
   ngOnInit(): void {
-     this.service.getStudents().subscribe({
-        next: json => this.students = json
-     });
+    this.loadStudents();
   }
+
+  loadStudents(){
+    this.service.getAll().subscribe({
+      next: json => this.students = json
+   });
+  }
+
   save(){
-    this.service.saveStudent(this.formGroupStudent.value).subscribe(
+    this.service.save(this.formGroupStudent.value).subscribe(
       {
       next: json  => {
         this.students.push(json);
@@ -41,4 +46,30 @@ export class StudentsComponent implements OnInit{
       }
     )
   }
+  delete(student: Student){
+    this.service.delete(student).subscribe(
+      {
+        next: () => this.loadStudents()
+      }
+    )
+  }
+  onClickUpdate(student: Student) {
+      this.formGroupStudent.setValue(student);
+      this.isediting = true;
+    }
+    update() {
+      this.service.update(this.formGroupStudent.value).subscribe(
+        {
+          next: () => {
+            this.loadStudents();
+            this.formGroupStudent.reset();
+            this.isediting = false;
+          }
+        }
+      )
+    }
+    onClickCancel(){
+      this.isediting = false;
+      this.formGroupStudent.reset();
+    }
 }
