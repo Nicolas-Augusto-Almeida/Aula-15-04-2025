@@ -1,19 +1,24 @@
 {
   "students": [
     {
-      "id": 2,
-      "name": "Leo ingles",
-      "course": "Espanhol"
-    },
-    {
-      "id": 3,
-      "name": "Jenivan",
-      "course": "Artilharia"
-    },
-    {
       "id": 4,
       "name": "Nicolas",
-      "course": "Angular"
+      "course": "Angulars"
+    },
+    {
+      "id": 5,
+      "name": "Carlos",
+      "course": "ADS"
+    },
+    {
+      "id": 6,
+      "name": "Carlos Mesquita",
+      "course": "Lixeiro"
+    },
+    {
+      "id": 8,
+      "name": "Nicolas augusto",
+      "course": "Morto"
     }
   ]
 }
